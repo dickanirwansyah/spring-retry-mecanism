@@ -1,0 +1,6 @@
+#configuration retry using resilience4j
+resilience4j.retry:
+  instances:
+    orderService:
+      maxRetryAttempts: 3
+      waitDuration: 11000

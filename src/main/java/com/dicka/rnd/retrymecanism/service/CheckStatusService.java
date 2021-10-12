@@ -16,6 +16,8 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class CheckStatusService {
 
+    /** using spring retry **/
+
     @Autowired
     private RestTemplate restTemplate;
 
@@ -34,7 +36,7 @@ public class CheckStatusService {
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.setContentType(MediaType.APPLICATION_JSON);
         HttpEntity<String> stringHttpEntity = new HttpEntity<String>(httpHeaders);
-        String data = restTemplate.exchange("https://sonplaceholder.typicode.com/posts/"+exNumber,
+        String data = restTemplate.exchange("https://jsonplaceholder.typicode.com/posts/"+exNumber,
                 HttpMethod.GET, stringHttpEntity, String.class).getBody();
         return data;
     }
